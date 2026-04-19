@@ -6,3 +6,4 @@
 2026-04-17T21:15:56 harden validation paths
 2026-04-18T14:49:13 wire internal state machine
 2026-04-19T10:43:46 implement core engine
+2026-04-19T17:17:25 add dataclass contracts
