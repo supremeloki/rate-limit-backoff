@@ -11,3 +11,4 @@
 2026-04-20T14:06:33 handle empty input edge case
 2026-04-21T21:39:36 refactor module boundaries
 2026-04-21T22:24:54 introduce typed error hierarchy
+2026-04-22T09:07:40 introduce typed error hierarchy pt2
