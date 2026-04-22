@@ -13,3 +13,4 @@
 2026-04-21T22:24:54 introduce typed error hierarchy
 2026-04-22T09:07:40 introduce typed error hierarchy pt2
 2026-04-22T09:21:36 wire internal state machine pt2
+2026-04-22T14:28:56 extract result type pt2
