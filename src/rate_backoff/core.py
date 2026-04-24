@@ -35,3 +35,5 @@ def fibonacci_sequence(count: int) -> Iterator[float]:
         yield first
         first, second = second, first + second
 
+
+@dataclass(frozen=True)
