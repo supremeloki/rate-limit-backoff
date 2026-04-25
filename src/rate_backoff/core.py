@@ -41,3 +41,5 @@ class AttemptRecord:
     attempt_number: int
     delay_before: float
     outcome: str
+    duration: float
+    error_summary: str | None = None
