@@ -39,3 +39,5 @@ def fibonacci_sequence(count: int) -> Iterator[float]:
 @dataclass(frozen=True)
 class AttemptRecord:
     attempt_number: int
+    delay_before: float
+    outcome: str

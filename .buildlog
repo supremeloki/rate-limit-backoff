@@ -20,3 +20,4 @@
 2026-04-24T21:40:45 extract result type pt2
 2026-04-24T21:48:40 harden validation paths pt2
 2026-04-25T13:45:52 implement core engine pt2
+2026-04-25T14:03:40 introduce typed error hierarchy pt2
