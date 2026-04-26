@@ -45,3 +45,5 @@ class AttemptRecord:
     error_summary: str | None = None
 
     @property
+    def succeeded(self) -> bool:
+        return self.outcome == "success"
