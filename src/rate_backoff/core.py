@@ -43,3 +43,5 @@ class AttemptRecord:
     outcome: str
     duration: float
     error_summary: str | None = None
+
+    @property
