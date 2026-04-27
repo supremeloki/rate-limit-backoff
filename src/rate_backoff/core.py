@@ -47,3 +47,4 @@ class AttemptRecord:
     @property
     def succeeded(self) -> bool:
         return self.outcome == "success"
+
