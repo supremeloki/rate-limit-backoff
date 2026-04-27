@@ -48,3 +48,5 @@ class AttemptRecord:
     def succeeded(self) -> bool:
         return self.outcome == "success"
 
+
+@dataclass
