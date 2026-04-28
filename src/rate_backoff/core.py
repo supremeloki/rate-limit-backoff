@@ -50,3 +50,5 @@ class AttemptRecord:
 
 
 @dataclass
+class RetryPolicy:
+    max_attempts: int = 5
