@@ -52,3 +52,5 @@ class AttemptRecord:
 @dataclass
 class RetryPolicy:
     max_attempts: int = 5
+    base_delay: float = 0.5
+    strategy: BackoffStrategy = BackoffStrategy.EXPONENTIAL
