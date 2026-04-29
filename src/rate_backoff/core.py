@@ -56,3 +56,5 @@ class RetryPolicy:
     strategy: BackoffStrategy = BackoffStrategy.EXPONENTIAL
     multiplier: float = 2.0
     max_delay: float = 30.0
+    jitter_ratio: float = 0.0
+    retryable: tuple[type[BaseException], ...] = (Exception,)
