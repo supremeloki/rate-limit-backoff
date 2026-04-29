@@ -54,3 +54,5 @@ class RetryPolicy:
     max_attempts: int = 5
     base_delay: float = 0.5
     strategy: BackoffStrategy = BackoffStrategy.EXPONENTIAL
+    multiplier: float = 2.0
+    max_delay: float = 30.0
