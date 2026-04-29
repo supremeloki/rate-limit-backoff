@@ -58,3 +58,5 @@ class RetryPolicy:
     max_delay: float = 30.0
     jitter_ratio: float = 0.0
     retryable: tuple[type[BaseException], ...] = (Exception,)
+    total_time_budget: float | None = None
+
