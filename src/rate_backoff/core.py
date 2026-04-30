@@ -61,3 +61,5 @@ class RetryPolicy:
     total_time_budget: float | None = None
 
     def __post_init__(self) -> None:
+        if self.max_attempts < 1:
+            raise BackoffError("max_attempts must be >= 1")
