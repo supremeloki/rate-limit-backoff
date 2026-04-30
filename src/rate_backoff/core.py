@@ -63,3 +63,5 @@ class RetryPolicy:
     def __post_init__(self) -> None:
         if self.max_attempts < 1:
             raise BackoffError("max_attempts must be >= 1")
+        if self.base_delay < 0 or self.max_delay < 0:
+            raise BackoffError("delays must be >= 0")
