@@ -60,3 +60,4 @@ class RetryPolicy:
     retryable: tuple[type[BaseException], ...] = (Exception,)
     total_time_budget: float | None = None
 
+    def __post_init__(self) -> None:
