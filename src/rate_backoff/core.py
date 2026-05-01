@@ -65,3 +65,5 @@ class RetryPolicy:
             raise BackoffError("max_attempts must be >= 1")
         if self.base_delay < 0 or self.max_delay < 0:
             raise BackoffError("delays must be >= 0")
+        if not 0.0 <= self.jitter_ratio <= 1.0:
+            raise BackoffError("jitter_ratio must be in [0, 1]")
