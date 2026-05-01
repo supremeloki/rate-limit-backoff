@@ -67,3 +67,5 @@ class RetryPolicy:
             raise BackoffError("delays must be >= 0")
         if not 0.0 <= self.jitter_ratio <= 1.0:
             raise BackoffError("jitter_ratio must be in [0, 1]")
+        if self.multiplier < 1.0:
+            raise BackoffError("multiplier must be >= 1")
