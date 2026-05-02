@@ -38,3 +38,4 @@
 2026-05-01T23:33:25 add streaming path
 2026-05-02T09:33:43 implement cache layer
 2026-05-02T11:09:29 add cli entrypoint
+2026-05-02T19:43:55 wire async handlers

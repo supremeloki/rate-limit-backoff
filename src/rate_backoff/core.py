@@ -73,3 +73,5 @@ class RetryPolicy:
     def compute_delay(self, attempt_index: int,
                       rng: Callable[[], float] | None = None) -> float:
         import random
+
+        rng = rng or random.random
