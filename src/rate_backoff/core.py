@@ -69,3 +69,5 @@ class RetryPolicy:
             raise BackoffError("jitter_ratio must be in [0, 1]")
         if self.multiplier < 1.0:
             raise BackoffError("multiplier must be >= 1")
+
+    def compute_delay(self, attempt_index: int,
