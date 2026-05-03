@@ -76,3 +76,5 @@ class RetryPolicy:
 
         rng = rng or random.random
         if self.strategy is BackoffStrategy.FIXED:
+            raw = self.base_delay
+        elif self.strategy is BackoffStrategy.LINEAR:
