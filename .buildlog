@@ -39,3 +39,4 @@
 2026-05-02T09:33:43 implement cache layer
 2026-05-02T11:09:29 add cli entrypoint
 2026-05-02T19:43:55 wire async handlers
+2026-05-03T10:00:57 support multiple sources pt2

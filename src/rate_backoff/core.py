@@ -75,3 +75,4 @@ class RetryPolicy:
         import random
 
         rng = rng or random.random
+        if self.strategy is BackoffStrategy.FIXED:
