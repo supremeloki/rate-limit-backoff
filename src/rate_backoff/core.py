@@ -78,3 +78,5 @@ class RetryPolicy:
         if self.strategy is BackoffStrategy.FIXED:
             raw = self.base_delay
         elif self.strategy is BackoffStrategy.LINEAR:
+            raw = self.base_delay * (attempt_index + 1)
+        elif self.strategy is BackoffStrategy.EXPONENTIAL:
