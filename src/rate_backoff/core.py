@@ -82,3 +82,5 @@ class RetryPolicy:
         elif self.strategy is BackoffStrategy.EXPONENTIAL:
             raw = self.base_delay * (self.multiplier ** attempt_index)
         else:
+            sequence = list(fibonacci_sequence(attempt_index + 1))
+            raw = self.base_delay * sequence[-1]
