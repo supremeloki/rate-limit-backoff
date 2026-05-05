@@ -84,3 +84,5 @@ class RetryPolicy:
         else:
             sequence = list(fibonacci_sequence(attempt_index + 1))
             raw = self.base_delay * sequence[-1]
+        capped = min(raw, self.max_delay)
+        if self.jitter_ratio > 0:
