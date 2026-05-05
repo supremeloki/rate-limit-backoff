@@ -86,3 +86,5 @@ class RetryPolicy:
             raw = self.base_delay * sequence[-1]
         capped = min(raw, self.max_delay)
         if self.jitter_ratio > 0:
+            jitter_span = capped * self.jitter_ratio
+            return max(0.0, capped - jitter_span + 2 * jitter_span * rng())
