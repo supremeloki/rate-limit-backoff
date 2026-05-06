@@ -47,3 +47,4 @@
 2026-05-05T11:22:38 add cli entrypoint pt2
 2026-05-05T13:46:05 implement cache layer pt2
 2026-05-05T22:57:31 wire async handlers pt2
+2026-05-06T11:26:17 extend public api surface pt2
