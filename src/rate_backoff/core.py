@@ -91,3 +91,5 @@ class RetryPolicy:
         return capped
 
 
+class RetryExecutor:
+    def __init__(self, policy: RetryPolicy,
