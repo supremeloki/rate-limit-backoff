@@ -101,3 +101,5 @@ class RetryExecutor:
 
     def run(self, operation: Callable[[], Any],
             on_attempt: Callable[[AttemptRecord], None] | None = None) -> Any:
+        started = self._clock()
+        last_error: BaseException | None = None
