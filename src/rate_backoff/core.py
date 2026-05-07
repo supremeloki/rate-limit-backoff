@@ -99,3 +99,5 @@ class RetryExecutor:
         self._sleep = sleep or time.sleep
         self._clock = clock or time.monotonic
 
+    def run(self, operation: Callable[[], Any],
+            on_attempt: Callable[[AttemptRecord], None] | None = None) -> Any:
