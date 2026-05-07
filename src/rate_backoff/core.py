@@ -97,3 +97,5 @@ class RetryExecutor:
                  clock: Callable[[], float] | None = None) -> None:
         self._policy = policy
         self._sleep = sleep or time.sleep
+        self._clock = clock or time.monotonic
+
