@@ -95,3 +95,5 @@ class RetryExecutor:
     def __init__(self, policy: RetryPolicy,
                  sleep: Callable[[float], None] | None = None,
                  clock: Callable[[], float] | None = None) -> None:
+        self._policy = policy
+        self._sleep = sleep or time.sleep
