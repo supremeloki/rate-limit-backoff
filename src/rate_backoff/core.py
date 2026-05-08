@@ -103,3 +103,4 @@ class RetryExecutor:
             on_attempt: Callable[[AttemptRecord], None] | None = None) -> Any:
         started = self._clock()
         last_error: BaseException | None = None
+        for attempt_index in range(self._policy.max_attempts):
