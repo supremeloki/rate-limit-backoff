@@ -101,3 +101,5 @@ def test_attempts_exhausted_carries_last_error():
         executor.run(lambda: (_ for _ in ()).throw(ValueError("always")))
     assert "always" in str(excinfo.value.last_error)
 
+
+def test_non_retryable_reraises_immediately():
