@@ -99,3 +99,5 @@ def test_attempts_exhausted_carries_last_error():
     )
     with pytest.raises(AttemptsExhaustedError) as excinfo:
         executor.run(lambda: (_ for _ in ()).throw(ValueError("always")))
+    assert "always" in str(excinfo.value.last_error)
+
