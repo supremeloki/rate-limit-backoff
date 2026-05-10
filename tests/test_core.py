@@ -106,3 +106,5 @@ def test_non_retryable_reraises_immediately():
     attempts: list[int] = []
 
     def fatal() -> None:
+        attempts.append(1)
+        raise KeyboardInterrupt("user abort")
