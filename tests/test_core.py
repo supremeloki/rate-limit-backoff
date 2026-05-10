@@ -104,3 +104,5 @@ def test_attempts_exhausted_carries_last_error():
 
 def test_non_retryable_reraises_immediately():
     attempts: list[int] = []
+
+    def fatal() -> None:
