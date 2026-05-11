@@ -110,3 +110,4 @@ def test_non_retryable_reraises_immediately():
         raise KeyboardInterrupt("user abort")
 
     executor = RetryExecutor(
+        RetryPolicy(max_attempts=5, retryable=(ConnectionError,)),
