@@ -113,3 +113,5 @@ def test_non_retryable_reraises_immediately():
         RetryPolicy(max_attempts=5, retryable=(ConnectionError,)),
         sleep=no_sleep,
     )
+    with pytest.raises(KeyboardInterrupt):
+        executor.run(fatal)
