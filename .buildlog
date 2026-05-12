@@ -63,3 +63,4 @@
 2026-05-10T13:45:46 add streaming path pt2
 2026-05-11T10:40:19 fix flaky ordering in tests
 2026-05-11T21:19:35 test streaming backpressure
+2026-05-12T13:06:52 regression test for parser

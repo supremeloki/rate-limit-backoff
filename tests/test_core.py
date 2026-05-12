@@ -111,3 +111,5 @@ def test_non_retryable_reraises_immediately():
 
     executor = RetryExecutor(
         RetryPolicy(max_attempts=5, retryable=(ConnectionError,)),
+        sleep=no_sleep,
+    )
