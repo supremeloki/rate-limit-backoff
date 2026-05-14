@@ -68,3 +68,4 @@
 2026-05-14T18:26:04 fix off-by-one in chunker
 2026-05-14T21:15:47 guard against missing header row
 2026-05-14T21:51:24 cover error branches
+2026-05-14T21:55:21 expand unit coverage

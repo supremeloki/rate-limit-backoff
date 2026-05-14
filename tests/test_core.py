@@ -120,3 +120,5 @@ def test_non_retryable_reraises_immediately():
 
 def test_on_attempt_callback_receives_records():
     records: list[str] = []
+    state = {"calls": 0}
+
