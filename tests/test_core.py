@@ -117,3 +117,4 @@ def test_non_retryable_reraises_immediately():
         executor.run(fatal)
     assert len(attempts) == 1
 
+
