@@ -118,3 +118,5 @@ def test_non_retryable_reraises_immediately():
     assert len(attempts) == 1
 
 
+def test_on_attempt_callback_receives_records():
+    records: list[str] = []
