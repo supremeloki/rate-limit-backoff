@@ -115,3 +115,5 @@ def test_non_retryable_reraises_immediately():
     )
     with pytest.raises(KeyboardInterrupt):
         executor.run(fatal)
+    assert len(attempts) == 1
+
