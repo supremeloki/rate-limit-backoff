@@ -122,3 +122,5 @@ def test_on_attempt_callback_receives_records():
     records: list[str] = []
     state = {"calls": 0}
 
+    def once_failing() -> int:
+        state["calls"] += 1
