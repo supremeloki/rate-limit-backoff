@@ -127,3 +127,5 @@ def test_on_attempt_callback_receives_records():
         if state["calls"] == 1:
             raise TimeoutError("slow")
         return 7
+
+    executor = RetryExecutor(
