@@ -129,3 +129,5 @@ def test_on_attempt_callback_receives_records():
         return 7
 
     executor = RetryExecutor(
+        RetryPolicy(max_attempts=3, base_delay=0.1),
+        sleep=no_sleep,
