@@ -132,3 +132,5 @@ def test_on_attempt_callback_receives_records():
         RetryPolicy(max_attempts=3, base_delay=0.1),
         sleep=no_sleep,
     )
+    result = executor.run(once_failing,
+                          on_attempt=lambda r: records.append(r.outcome))

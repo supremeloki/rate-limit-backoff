@@ -75,3 +75,4 @@
 2026-05-16T17:18:08 fix flaky ordering in tests pt2
 2026-05-17T09:54:00 regression test for parser pt2
 2026-05-17T17:45:54 test grouping edge cases pt2
+2026-05-17T18:46:40 cover error branches pt2
