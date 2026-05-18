@@ -134,3 +134,5 @@ def test_on_attempt_callback_receives_records():
     )
     result = executor.run(once_failing,
                           on_attempt=lambda r: records.append(r.outcome))
+    assert result == 7
+    assert records[0] == "retryable-failure"
