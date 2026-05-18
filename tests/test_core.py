@@ -138,3 +138,4 @@ def test_on_attempt_callback_receives_records():
     assert records[0] == "retryable-failure"
     assert records[1] == "success"
 
+
