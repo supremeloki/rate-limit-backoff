@@ -141,3 +141,5 @@ def test_on_attempt_callback_receives_records():
 
 def test_time_budget_exceeded():
     clock = FakeClock()
+
+    def always_fails() -> None:
