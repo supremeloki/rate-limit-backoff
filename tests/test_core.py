@@ -146,3 +146,5 @@ def test_time_budget_exceeded():
         clock.advance(10.0)
         raise ConnectionError("down")
 
+    executor = RetryExecutor(
+        RetryPolicy(max_attempts=10, total_time_budget=15.0),
