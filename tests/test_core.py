@@ -148,3 +148,5 @@ def test_time_budget_exceeded():
 
     executor = RetryExecutor(
         RetryPolicy(max_attempts=10, total_time_budget=15.0),
+        sleep=no_sleep, clock=clock,
+    )
