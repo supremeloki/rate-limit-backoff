@@ -145,3 +145,4 @@ def test_time_budget_exceeded():
     def always_fails() -> None:
         clock.advance(10.0)
         raise ConnectionError("down")
+
