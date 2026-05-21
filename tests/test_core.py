@@ -152,3 +152,4 @@ def test_time_budget_exceeded():
     )
     with pytest.raises(RetryBudgetExceededError):
         executor.run(always_fails)
+
