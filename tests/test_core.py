@@ -155,3 +155,5 @@ def test_time_budget_exceeded():
 
 
 def test_token_bucket_basic_acquire():
+    bucket = TokenBucketRateLimiter(capacity=3, refill_per_second=1.0)
+    assert bucket.try_acquire() is True
