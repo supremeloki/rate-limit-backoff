@@ -150,3 +150,5 @@ def test_time_budget_exceeded():
         RetryPolicy(max_attempts=10, total_time_budget=15.0),
         sleep=no_sleep, clock=clock,
     )
+    with pytest.raises(RetryBudgetExceededError):
+        executor.run(always_fails)
