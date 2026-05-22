@@ -160,3 +160,5 @@ def test_token_bucket_basic_acquire():
     assert bucket.try_acquire(2) is True
     assert bucket.try_acquire() is False
 
+
+def test_token_bucket_wait_time():
