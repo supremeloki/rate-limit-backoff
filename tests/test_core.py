@@ -164,3 +164,5 @@ def test_token_bucket_basic_acquire():
 def test_token_bucket_wait_time():
     bucket = TokenBucketRateLimiter(capacity=4, refill_per_second=2.0)
     bucket.try_acquire(4)
+    wait = bucket.wait_time(2)
+    assert 0.9 <= wait <= 1.1
