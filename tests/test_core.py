@@ -167,3 +167,5 @@ def test_token_bucket_wait_time():
     wait = bucket.wait_time(2)
     assert 0.9 <= wait <= 1.1
 
+
+def test_token_bucket_invalid_config():
