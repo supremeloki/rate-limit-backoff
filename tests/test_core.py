@@ -166,3 +166,4 @@ def test_token_bucket_wait_time():
     bucket.try_acquire(4)
     wait = bucket.wait_time(2)
     assert 0.9 <= wait <= 1.1
+
