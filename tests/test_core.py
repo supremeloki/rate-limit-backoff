@@ -169,3 +169,5 @@ def test_token_bucket_wait_time():
 
 
 def test_token_bucket_invalid_config():
+    with pytest.raises(BackoffError):
+        TokenBucketRateLimiter(capacity=0, refill_per_second=1.0)
