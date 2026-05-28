@@ -104,3 +104,82 @@ class RetryExecutor:
         started = self._clock()
         last_error: BaseException | None = None
         for attempt_index in range(self._policy.max_attempts):
+            if (self._policy.total_time_budget is not None
+                    and self._clock() - started >= self._policy.total_time_budget):
+                raise RetryBudgetExceededError(
+                    f"time budget {self._policy.total_time_budget}s exhausted"
+                )
+            delay = self._policy.compute_delay(attempt_index) \
+                if attempt_index > 0 else 0.0
+            op_started = self._clock()
+            try:
+                result = operation()
+                duration = self._clock() - op_started
+                record = AttemptRecord(
+                    attempt_number=attempt_index + 1,
+                    delay_before=delay,
+                    outcome="success",
+                    duration=round(duration, 4),
+                )
+                if on_attempt:
+                    on_attempt(record)
+                return result
+            except self._policy.retryable as exc:
+                last_error = exc
+                duration = self._clock() - op_started
+                record = AttemptRecord(
+                    attempt_number=attempt_index + 1,
+                    delay_before=delay,
+                    outcome="retryable-failure",
+                    duration=round(duration, 4),
+                    error_summary=f"{type(exc).__name__}: {exc}",
+                )
+                if on_attempt:
+                    on_attempt(record)
+                if delay > 0:
+                    self._sleep(delay)
+            except BaseException as exc:
+                record = AttemptRecord(
+                    attempt_number=attempt_index + 1,
+                    delay_before=0.0,
+                    outcome="fatal",
+                    duration=self._clock() - op_started,
+                    error_summary=f"{type(exc).__name__}: {exc}",
+                )
+                if on_attempt:
+                    on_attempt(record)
+                raise
+        raise AttemptsExhaustedError(self._policy.max_attempts, last_error)
+
+
+class TokenBucketRateLimiter:
+    def __init__(self, capacity: int, refill_per_second: float) -> None:
+        if capacity < 1 or refill_per_second <= 0:
+            raise BackoffError("capacity >= 1 and positive refill required")
+        self.capacity = capacity
+        self.refill_rate = refill_per_second
+        self.tokens = float(capacity)
+        self.last_refill = time.monotonic()
+
+    def _refill(self) -> None:
+        now = time.monotonic()
+        elapsed = now - self.last_refill
+        self.tokens = min(float(self.capacity),
+                          self.tokens + elapsed * self.refill_rate)
+        self.last_refill = now
+
+    def try_acquire(self, tokens: int = 1) -> bool:
+        if tokens > self.capacity:
+            raise BackoffError("requested tokens exceed bucket capacity")
+        self._refill()
+        if self.tokens >= tokens:
+            self.tokens -= tokens
+            return True
+        return False
+
+    def wait_time(self, tokens: int = 1) -> float:
+        self._refill()
+        deficit = tokens - self.tokens
+        if deficit <= 0:
+            return 0.0
+        return round(deficit / self.refill_rate, 4)
